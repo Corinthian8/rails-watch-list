@@ -1,15 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>All lists</h1>
-      <ul class="list-group mb-3">
-        <% @lists.each do |list| %>
-          <li class="list-group-item">
-            <%= link_to list.name, list_path(list) %>
-          </li>
-        <% end %>
+<nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+  <h2 class="page-title">Movie Watchlist</h2>
+    <form class="d-flex" role="search">
+      <%= link_to "Create a new list", new_list_path, class: 'btn btn-sm btn-outline-secondary' %>
+    </form>
+  </div>
+</nav>
+<% @lists.each do |list| %>
+  <div class="card" style="width: 18rem;">
+    <%= image_tag( "img1.jpg", class:"card-img-top" ) %>
+    <div class="card-body">
+      <%= link_to list.name, list_path(list) %>
+    </div>
+  </div>
+<% end %>
       </ul>
-      <%= link_to "Create a new list", new_list_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </div>
